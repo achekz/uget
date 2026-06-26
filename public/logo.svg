@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="90" fill="#CE1126" />
+  <circle cx="100" cy="100" r="70" fill="#0B0E14" />
+  <path d="M100 30 L100 170 M30 100 L170 100" stroke="#FAFAF7" strokeWidth="4" />
+  <text x="100" y="115" textAnchor="middle" fill="#D4A537" fontFamily="sans-serif" fontWeight="bold" fontSize="28">UGET</text>
+</svg>

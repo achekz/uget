@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "المocodeel الجهوي بتونس",
+    "university": "جامعة تونس",
+    "city": "تونس",
+    "email": "tunis@uget.tn",
+    "phone": "+216 71 000 000"
+  },
+  {
+    "id": "2",
+    "name": "المocodeel الجهوي بمنوبة",
+    "university": "جامعة منوبة",
+    "city": "منوبة",
+    "email": "manouba@uget.tn",
+    "phone": "+216 71 000 001"
+  },
+  {
+    "id": "3",
+    "name": "المocodeel الجهوي بصفاقس",
+    "university": "جامعة صفاقس",
+    "city": "صفاقس",
+    "email": "sfax@uget.tn",
+    "phone": "+216 74 000 000"
+  },
+  {
+    "id": "4",
+    "name": "المocodeel الجهوي بسوسة",
+    "university": "جامعة سوسة",
+    "city": "سوسة",
+    "email": "sousse@uget.tn",
+    "phone": "+216 73 000 000"
+  },
+  {
+    "id": "5",
+    "name": "المocodeel الجهوي بالقيروان",
+    "university": "جامعة القيروان",
+    "city": "القيروان",
+    "email": "kairouan@uget.tn",
+    "phone": "+216 78 000 000"
+  },
+  {
+    "id": "6",
+    "name": "المocodeel الجهوي بجندوبة",
+    "university": "جامعة جندوبة",
+    "city": "جندوبة",
+    "email": "jendouba@uget.tn",
+    "phone": "+216 78 000 001"
+  }
+]

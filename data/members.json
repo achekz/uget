@@ -1,0 +1,107 @@
+[
+  {
+    "id": "1",
+    "name": "محمد اولاد محمد",
+    "role": "الأمين العام",
+    "sector": "الأمانة العامة",
+    "image": "https://res.cloudinary.com/ds28y3pjc/image/upload/v1782480043/members/uf7lbnqe2teqdqjzw88w.jpg"
+  },
+  {
+    "id": "2",
+    "name": "لواء الدين النابلي",
+    "role": "نائب الأمين العام",
+    "sector": "الأمانة العامة",
+    "image": "https://picsum.photos/seed/member2/400/400"
+  },
+  {
+    "id": "3",
+    "name": "منتصر سالم",
+    "role": "الرئيس",
+    "sector": "الرئاسة",
+    "image": "https://picsum.photos/seed/member3/400/400"
+  },
+  {
+    "id": "4",
+    "name": "شاهين طرابلسي",
+    "role": "الناطق الرسمي",
+    "sector": "الإعلام والتواصل",
+    "image": "https://picsum.photos/seed/member4/400/400"
+  },
+  {
+    "id": "5",
+    "name": "يوسف حسني",
+    "role": "أمين المال",
+    "sector": "الشؤون المالية",
+    "image": "https://picsum.photos/seed/member5/400/400"
+  },
+  {
+    "id": "6",
+    "name": "أميمة بن غريب",
+    "role": "مكلف بالنظام الداخلي",
+    "sector": "النظام الداخلي",
+    "image": "https://picsum.photos/seed/member6/400/400"
+  },
+  {
+    "id": "7",
+    "name": "ليث الجباري",
+    "role": "مكلف بالتثقيف النقابي",
+    "sector": "التثقيف النقابي",
+    "image": "https://picsum.photos/seed/member7/400/400"
+  },
+  {
+    "id": "8",
+    "name": "أمان الله معلاوي",
+    "role": "مكلف بالعمل الثقافي",
+    "sector": "العمل الثقافي",
+    "image": "https://picsum.photos/seed/member8/400/400"
+  },
+  {
+    "id": "9",
+    "name": "ياسين ميمون",
+    "role": "مكلف بالخدمات الجامعية",
+    "sector": "الخدمات الجامعية",
+    "image": "https://picsum.photos/seed/member9/400/400"
+  },
+  {
+    "id": "10",
+    "name": "هديل الطرابلسي",
+    "role": "مكلف بالخدمات الجامعية",
+    "sector": "الخدمات الجامعية",
+    "image": "https://picsum.photos/seed/member10/400/400"
+  },
+  {
+    "id": "11",
+    "name": "زياد العاشق",
+    "role": "مكلف بالخدمات الجامعية",
+    "sector": "الخدمات الجامعية",
+    "image": "https://picsum.photos/seed/member11/400/400"
+  },
+  {
+    "id": "12",
+    "name": "آزر مخلوفي",
+    "role": "مكلف بالخدمات الجامعية",
+    "sector": "الخدمات الجامعية",
+    "image": "https://picsum.photos/seed/member12/400/400"
+  },
+  {
+    "id": "13",
+    "name": "ميساء الحمادي",
+    "role": "مكلف بفروع الهجرة والعلاقات الدولية",
+    "sector": "العلاقات الدولية",
+    "image": "https://picsum.photos/seed/member13/400/400"
+  },
+  {
+    "id": "14",
+    "name": "محمد علي بن خالد",
+    "role": "مكلف بالقطاعات",
+    "sector": "القطاعات",
+    "image": "https://picsum.photos/seed/member14/400/400"
+  },
+  {
+    "id": "15",
+    "name": "محمد إيهاب السعيدي",
+    "role": "مكلف بالعمل الجماهيري",
+    "sector": "العمل الجماهيري",
+    "image": "https://picsum.photos/seed/member15/400/400"
+  }
+]

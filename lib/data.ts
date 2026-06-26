@@ -1,0 +1,195 @@
+import { NewsPost, ExecutiveMember, UniversityStructure, OrientationEvent, FAQ } from "@/types";
+
+export const faqs: FAQ[] = [
+  { id: "1", question: "كيف انخرط في الاتحاد؟", answer: "يمكنك الانخراط عبر ملء استمارة الانخراط في صفحة 'انضم إلينا' أو التواصل مع الهيكل الجامعي الأقرب لك.", category: "membership", language: "ar", order: 1 },
+  { id: "2", question: "متى نتائج التوجيه 2026؟", answer: "النتائج النهائية للتوجيه الجامعي تعلن في 12 أوت 2026 عبر منصة orientation.tn.", category: "orientation", language: "ar", order: 2 },
+  { id: "3", question: "كيف أطلب سكناً جامعياً؟", answer: "يمكنك التقدم بطلب سكن جامعي عبر المنصة الرسمية للوزارة أو الاتصال بهيكل الجامعة.", category: "housing", language: "ar", order: 3 },
+  { id: "4", question: "ما هي المنحة الجامعية؟", answer: "المنحة الجامعية هي مساعدة مالية للطلبة المحتاجين، يمكن الاطلاع على الشروط عبر موقع الوزارة.", category: "housing", language: "ar", order: 4 },
+];
+
+export const news: NewsPost[] = [
+  {
+    id: "1",
+    title: "بيان حول التوجيه الجامعي 2026/2027",
+    excerpt: "يدعو الاتحاد العام لطلبة تونس جميع الطلبة الجدد إلى الاطلاع على روزنامة التوجيه الجامعي والاستفادة من المساعدات المتوفرة.",
+    content: "فدعوة الاتحاد العام لطلبة تونس جميع الطلبة الجدد إلى الاطلاع على روزنامة التوجيه الجامعي والاستفادة من المساعدات المتوفرة عبر مختلف هياكلنا الجامعية.",
+    date: "2026-06-20",
+    category: "توجيه جامعي",
+    slug: "biyan-tawjih-2026",
+    image: "https://picsum.photos/seed/uget1/800/400",
+  },
+  {
+    id: "2",
+    title: "مؤتمر وطني طارئ حول السكن الجامعي",
+    excerpt: "ينعقد مؤتمر وطني طارئ لمناقشة أزمة السكن الجامعي وسبل التدخل لحلها.",
+    content: "في إطار متابعة أزمة السكن الجامعي، ينعقد مؤتمر وطني طارئ لمناقشة الأزمة.",
+    date: "2026-06-15",
+    category: "سكن جامعي",
+    slug: "muatamar-sakan-2026",
+    image: "https://picsum.photos/seed/uget2/800/400",
+  },
+  {
+    id: "3",
+    title: "بيان تضامني مع الطلبة المنحدرين من المناطق المهمشة",
+    excerpt: "يعبر الاتحاد عن تضامنه الكامل مع الطلبة المنحدرين من المناطق المهمشة ويطالب بتحسين الخدمات الجامعية.",
+    content: "في إطار التزامه بالقضايا الطلابية، يعبر الاتحاد عن تضامنه الكامل.",
+    date: "2026-06-10",
+    category: "بيان عام",
+    slug: "biyan-tadamun-2026",
+    image: "https://picsum.photos/seed/uget3/800/400",
+  },
+  {
+    id: "4",
+    title: "مطالبات بزيادة قيمة المنحة الجامعية",
+    excerpt: "يطالب الاتحاد بمراجعة شاملة لقيمة المنحة الجامعية وتوسيع دائرة المستفيدين.",
+    content: "يطالب الاتحاد بمراجعة شاملة لقيمة المنحة الجامعية وتوسيع دائرة المستفيدين.",
+    date: "2026-06-05",
+    category: "منح",
+    slug: "mutalabat-minha-2026",
+    image: "https://picsum.photos/seed/uget4/800/400",
+  },
+  {
+    id: "5",
+    title: "انطلاق الحملة الوطنية للانخراط",
+    excerpt: "تنطلق الحملة الوطنية للانخراط في صفوف الاتحاد العام لطلبة تونس.",
+    content: "تنطلق الحملة الوطنية للانخراط في صفوف الاتحاد العام لطلبة تونس.",
+    date: "2026-06-01",
+    category: "انخراط",
+    slug: "hamla-intikhab-2026",
+    image: "https://picsum.photos/seed/uget5/800/400",
+  },
+];
+
+export const members: ExecutiveMember[] = [
+  {
+    id: "1",
+    name: "عضو تنفيذي 1",
+    role: "الكاتب العام",
+    sector: "الكتابة العامة",
+    image: "https://picsum.photos/seed/member1/400/400",
+  },
+  {
+    id: "2",
+    name: "عضو تنفيذي 2",
+    role: "نائب الكاتب العام",
+    sector: "التنظيم",
+    image: "https://picsum.photos/seed/member2/400/400",
+  },
+  {
+    id: "3",
+    name: "عضو تنفيذي 3",
+    role: "المسؤول المالي",
+    sector: "الشؤون المالية",
+    image: "https://picsum.photos/seed/member3/400/400",
+  },
+  {
+    id: "4",
+    name: "عضو تنفيذي 4",
+    role: "مسؤول إعلامي",
+    sector: "الإعلام والتواصل",
+    image: "https://picsum.photos/seed/member4/400/400",
+  },
+  {
+    id: "5",
+    name: "عضو تنفيذي 5",
+    role: "مسؤول ثقافي",
+    sector: "الشؤون الثقافية",
+    image: "https://picsum.photos/seed/member5/400/400",
+  },
+  {
+    id: "6",
+    name: "عضو تنفيذي 6",
+    role: "مسؤول علاقات خارجية",
+    sector: "العلاقات الخارجية",
+    image: "https://picsum.photos/seed/member6/400/400",
+  },
+];
+
+export const structures: UniversityStructure[] = [
+  {
+    id: "1",
+    name: "المocodeel الجهوي بتونس",
+    university: "جامعة تونس",
+    city: "تونس",
+    email: "tunis@uget.tn",
+    phone: "+216 71 000 000",
+  },
+  {
+    id: "2",
+    name: "المocodeel الجهوي بمنوبة",
+    university: "جامعة منوبة",
+    city: "منوبة",
+    email: "manouba@uget.tn",
+    phone: "+216 71 000 001",
+  },
+  {
+    id: "3",
+    name: "المocodeel الجهوي بصفاقس",
+    university: "جامعة صفاقس",
+    city: "صفاقس",
+    email: "sfax@uget.tn",
+    phone: "+216 74 000 000",
+  },
+  {
+    id: "4",
+    name: "المocodeel الجهوي بسوسة",
+    university: "جامعة سوسة",
+    city: "سوسة",
+    email: "sousse@uget.tn",
+    phone: "+216 73 000 000",
+  },
+  {
+    id: "5",
+    name: "المocodeel الجهوي بالقيروان",
+    university: "جامعة القيروان",
+    city: "القيروان",
+    email: "kairouan@uget.tn",
+    phone: "+216 78 000 000",
+  },
+  {
+    id: "6",
+    name: "المocodeel الجهوي بجندوبة",
+    university: "جامعة جندوبة",
+    city: "جندوبة",
+    email: "jendouba@uget.tn",
+    phone: "+216 78 000 001",
+  },
+];
+
+export const orientationEvents: OrientationEvent[] = [
+  {
+    id: "1",
+    title: "إعلان نتائج البكالوريا",
+    date: "2026-07-05",
+    description: "تاريخ إعلان نتائج امتحان البكالوريا دورة جوان 2026.",
+    type: "info",
+  },
+  {
+    id: "2",
+    title: "صدور دليل التوجيه",
+    date: "2026-07-10",
+    description: "صدور الدليل الوطني للتوجيه الجامعي للسنة الجامعية 2026/2027.",
+    type: "info",
+  },
+  {
+    id: "3",
+    title: "انطلاق الدورة الرئيسية للتوجيه",
+    date: "2026-07-15",
+    description: "انطلاق الدورة الرئيسية لعمليات التوجيه الجامعي عبر منظومة orientation.tn",
+    type: "warning",
+  },
+  {
+    id: "4",
+    title: "الدورة النهائية للتوجيه",
+    date: "2026-08-07",
+    description: "آجال الدورة النهائية للتوجيه الجامعي (من 7 إلى 9 أوت 2026).",
+    type: "warning",
+  },
+  {
+    id: "5",
+    title: "إعلان النتائج النهائية",
+    date: "2026-08-12",
+    description: "إعلان النتائج النهائية للتوجيه الجامعي 2026/2027.",
+    type: "success",
+  },
+];
