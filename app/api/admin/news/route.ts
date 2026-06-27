@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
     };
 
     const created = await createNews(newPost);
+    revalidatePath('/');
     revalidatePath('/news');
     revalidatePath(`/news/${created.slug}`);
     return Response.json(created, { status: 201 });
@@ -68,6 +69,7 @@ export async function PATCH(request: NextRequest) {
       return Response.json({ error: 'News not found' }, { status: 404 });
     }
 
+    revalidatePath('/');
     revalidatePath('/news');
     revalidatePath(`/news/${updated.slug}`);
     if (updates.slug && updates.slug !== updated.slug) {
@@ -104,6 +106,7 @@ export async function DELETE(request: NextRequest) {
       return Response.json({ error: 'News not found' }, { status: 404 });
     }
 
+    revalidatePath('/');
     revalidatePath('/news');
     if (postToDelete) {
       revalidatePath(`/news/${postToDelete.slug}`);

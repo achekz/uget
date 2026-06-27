@@ -3,16 +3,18 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { news } from "@/lib/data";
 import { Marquee } from "@/components/sections/marquee";
 import CountdownBanner from "@/components/sections/countdown-banner";
 import OrientationBanner from "@/components/sections/orientation-banner";
 import BentoGrid from "@/components/sections/bento-grid";
 import NewsCard from "@/components/sections/news-card";
+import { NewsPost } from "@/types";
 
-export default function PageClient() {
-  const latestNews = news.slice(0, 3);
+interface PageClientProps {
+  latestNews: NewsPost[];
+}
 
+export default function PageClient({ latestNews }: PageClientProps) {
   return (
     <div className="min-h-screen">
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-ink text-paper">
