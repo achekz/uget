@@ -4,22 +4,38 @@ import { NewsPost, ExecutiveMember, UniversityStructure, FAQ, JoinRequest } from
 // ─── NEWS ────────────────────────────────────────────────────
 
 export async function getAllNews(): Promise<NewsPost[]> {
-  const { data, error } = await supabase
-    .from('news')
-    .select('*')
-    .order('date', { ascending: false });
-  if (error) throw error;
-  return data as NewsPost[];
+  try {
+    const { data, error } = await supabase
+      .from('news')
+      .select('*')
+      .order('date', { ascending: false });
+    if (error) {
+      console.error('Error fetching all news:', error);
+      return [];
+    }
+    return (data || []) as NewsPost[];
+  } catch (error) {
+    console.error('Unexpected error fetching all news:', error);
+    return [];
+  }
 }
 
 export async function getNewsBySlug(slug: string): Promise<NewsPost | null> {
-  const { data, error } = await supabase
-    .from('news')
-    .select('*')
-    .eq('slug', slug)
-    .single();
-  if (error) return null;
-  return data as NewsPost;
+  try {
+    const { data, error } = await supabase
+      .from('news')
+      .select('*')
+      .eq('slug', slug)
+      .maybeSingle(); // Use maybeSingle to avoid throwing when not found
+    if (error) {
+      console.error(`Error fetching news by slug (${slug}):`, error);
+      return null;
+    }
+    return data as NewsPost | null;
+  } catch (error) {
+    console.error(`Unexpected error fetching news by slug (${slug}):`, error);
+    return null;
+  }
 }
 
 export async function createNews(post: NewsPost): Promise<NewsPost> {
@@ -54,11 +70,19 @@ export async function deleteNews(id: string): Promise<boolean> {
 // ─── MEMBERS ─────────────────────────────────────────────────
 
 export async function getAllMembers(): Promise<ExecutiveMember[]> {
-  const { data, error } = await supabase
-    .from('members')
-    .select('*');
-  if (error) throw error;
-  return data as ExecutiveMember[];
+  try {
+    const { data, error } = await supabase
+      .from('members')
+      .select('*');
+    if (error) {
+      console.error('Error fetching all members:', error);
+      return [];
+    }
+    return (data || []) as ExecutiveMember[];
+  } catch (error) {
+    console.error('Unexpected error fetching all members:', error);
+    return [];
+  }
 }
 
 export async function createMember(member: ExecutiveMember): Promise<ExecutiveMember> {
@@ -93,11 +117,19 @@ export async function deleteMember(id: string): Promise<boolean> {
 // ─── STRUCTURES ──────────────────────────────────────────────
 
 export async function getAllStructures(): Promise<UniversityStructure[]> {
-  const { data, error } = await supabase
-    .from('structures')
-    .select('*');
-  if (error) throw error;
-  return data as UniversityStructure[];
+  try {
+    const { data, error } = await supabase
+      .from('structures')
+      .select('*');
+    if (error) {
+      console.error('Error fetching all structures:', error);
+      return [];
+    }
+    return (data || []) as UniversityStructure[];
+  } catch (error) {
+    console.error('Unexpected error fetching all structures:', error);
+    return [];
+  }
 }
 
 export async function createStructure(structure: UniversityStructure): Promise<UniversityStructure> {
@@ -132,12 +164,20 @@ export async function deleteStructure(id: string): Promise<boolean> {
 // ─── FAQS ────────────────────────────────────────────────────
 
 export async function getAllFAQs(): Promise<FAQ[]> {
-  const { data, error } = await supabase
-    .from('faqs')
-    .select('*')
-    .order('order', { ascending: true });
-  if (error) throw error;
-  return data as FAQ[];
+  try {
+    const { data, error } = await supabase
+      .from('faqs')
+      .select('*')
+      .order('order', { ascending: true });
+    if (error) {
+      console.error('Error fetching all FAQs:', error);
+      return [];
+    }
+    return (data || []) as FAQ[];
+  } catch (error) {
+    console.error('Unexpected error fetching all FAQs:', error);
+    return [];
+  }
 }
 
 export async function createFAQ(faq: FAQ): Promise<FAQ> {
@@ -172,12 +212,20 @@ export async function deleteFAQ(id: string): Promise<boolean> {
 // ─── JOIN REQUESTS ────────────────────────────────────────────
 
 export async function getAllJoinRequests(): Promise<JoinRequest[]> {
-  const { data, error } = await supabase
-    .from('join_requests')
-    .select('*')
-    .order('submitted_at', { ascending: false });
-  if (error) throw error;
-  return data as JoinRequest[];
+  try {
+    const { data, error } = await supabase
+      .from('join_requests')
+      .select('*')
+      .order('submitted_at', { ascending: false });
+    if (error) {
+      console.error('Error fetching all join requests:', error);
+      return [];
+    }
+    return (data || []) as JoinRequest[];
+  } catch (error) {
+    console.error('Unexpected error fetching all join requests:', error);
+    return [];
+  }
 }
 
 export async function createJoinRequest(request: JoinRequest): Promise<JoinRequest> {
