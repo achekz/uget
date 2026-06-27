@@ -36,39 +36,23 @@ export async function POST(request: NextRequest) {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Define transformations based on folder
-    let transformation;
-    
+    // Build transformation string for URL (applied after upload, not during)
+    let transformationStr: string;
+
     if (folder === 'members') {
-      // Members: Square crop with face detection
-      transformation = [
-        { width: 500, height: 500, crop: 'fill', gravity: 'face' },
-        { quality: 'auto:good' },
-        { fetch_format: 'auto' }
-      ];
+      transformationStr = 'c_fill,g_face,h_500,w_500/q_auto:good/f_auto';
     } else if (folder === 'news') {
-      // News: Rectangle 2:1 ratio
-      transformation = [
-        { width: 1200, height: 600, crop: 'fill', gravity: 'auto' },
-        { quality: 'auto:good' },
-        { fetch_format: 'auto' }
-      ];
+      transformationStr = 'c_fill,g_auto,h_600,w_1200/q_auto:good/f_auto';
     } else {
-      // Default: Optimize without strict crop
-      transformation = [
-        { width: 800, height: 800, crop: 'limit' },
-        { quality: 'auto:good' },
-        { fetch_format: 'auto' }
-      ];
+      transformationStr = 'c_limit,h_800,w_800/q_auto:good/f_auto';
     }
 
-    // Upload to Cloudinary
+    // Upload raw file — no transformation in upload options (causes invalid signature)
     const result = await new Promise((resolve, reject) => {
       const uploadStream = cloudinary.uploader.upload_stream(
         {
           folder: folder,
           resource_type: 'auto',
-          transformation: transformation
         },
         (error, result) => {
           if (error) reject(error);
@@ -79,10 +63,16 @@ export async function POST(request: NextRequest) {
       uploadStream.end(buffer);
     });
 
+    const uploadResult = result as any;
+
+    // Build transformed URL manually using public_id
+    const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+    const transformedUrl = `https://res.cloudinary.com/${cloudName}/image/upload/${transformationStr}/${uploadResult.public_id}`;
+
     return Response.json({
       success: true,
-      url: (result as any).secure_url,
-      publicId: (result as any).public_id,
+      url: transformedUrl,
+      publicId: uploadResult.public_id,
     });
   } catch (error: any) {
     console.error('Upload error:', error);
