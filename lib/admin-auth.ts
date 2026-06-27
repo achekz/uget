@@ -17,6 +17,15 @@ export function isAuthenticated(request: NextRequest): boolean {
   return token === adminPassword;
 }
 
+export function verifyAdminPassword(password: string | null): boolean {
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword) {
+    console.warn('ADMIN_PASSWORD not set in environment variables');
+    return false;
+  }
+  return password === adminPassword;
+}
+
 export function createAuthResponse(message: string = 'Unauthorized') {
   return Response.json(
     { error: message },
