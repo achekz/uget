@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { isAuthenticated, createAuthResponse } from '@/lib/admin-auth';
 import {
   getAllNews,
@@ -38,6 +39,8 @@ export async function POST(request: NextRequest) {
     };
 
     const created = await createNews(newPost);
+    revalidatePath('/news');
+    revalidatePath(`/news/${created.slug}`);
     return Response.json(created, { status: 201 });
   } catch (error) {
     console.error('Error creating news:', error);
@@ -65,6 +68,11 @@ export async function PATCH(request: NextRequest) {
       return Response.json({ error: 'News not found' }, { status: 404 });
     }
 
+    revalidatePath('/news');
+    revalidatePath(`/news/${updated.slug}`);
+    if (updates.slug && updates.slug !== updated.slug) {
+      revalidatePath(`/news/${updates.slug}`);
+    }
     return Response.json(updated);
   } catch (error) {
     console.error('Error updating news:', error);
@@ -86,12 +94,20 @@ export async function DELETE(request: NextRequest) {
       return Response.json({ error: 'ID is required' }, { status: 400 });
     }
 
+    // Get the post first to know its slug for revalidation
+    const allNews = await getAllNews();
+    const postToDelete = allNews.find(p => p.id === id);
+
     const deleted = await deleteNews(id);
     
     if (!deleted) {
       return Response.json({ error: 'News not found' }, { status: 404 });
     }
 
+    revalidatePath('/news');
+    if (postToDelete) {
+      revalidatePath(`/news/${postToDelete.slug}`);
+    }
     return Response.json({ success: true });
   } catch (error) {
     console.error('Error deleting news:', error);

@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { isAuthenticated, createAuthResponse } from '@/lib/admin-auth';
 import {
   getAllMembers,
@@ -37,6 +38,7 @@ export async function POST(request: NextRequest) {
     };
 
     const created = await createMember(newMember);
+    revalidatePath('/executive-bureau');
     return Response.json(created, { status: 201 });
   } catch (error) {
     console.error('Error creating member:', error);
@@ -64,6 +66,7 @@ export async function PATCH(request: NextRequest) {
       return Response.json({ error: 'Member not found' }, { status: 404 });
     }
 
+    revalidatePath('/executive-bureau');
     return Response.json(updated);
   } catch (error) {
     console.error('Error updating member:', error);
@@ -91,6 +94,7 @@ export async function DELETE(request: NextRequest) {
       return Response.json({ error: 'Member not found' }, { status: 404 });
     }
 
+    revalidatePath('/executive-bureau');
     return Response.json({ success: true });
   } catch (error) {
     console.error('Error deleting member:', error);

@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { isAuthenticated, createAuthResponse } from '@/lib/admin-auth';
 import {
   getAllFAQs,
@@ -38,6 +39,7 @@ export async function POST(request: NextRequest) {
     };
 
     const created = await createFAQ(newFAQ);
+    revalidatePath('/faq');
     return Response.json(created, { status: 201 });
   } catch (error) {
     console.error('Error creating FAQ:', error);
@@ -65,6 +67,7 @@ export async function PATCH(request: NextRequest) {
       return Response.json({ error: 'FAQ not found' }, { status: 404 });
     }
 
+    revalidatePath('/faq');
     return Response.json(updated);
   } catch (error) {
     console.error('Error updating FAQ:', error);
@@ -92,6 +95,7 @@ export async function DELETE(request: NextRequest) {
       return Response.json({ error: 'FAQ not found' }, { status: 404 });
     }
 
+    revalidatePath('/faq');
     return Response.json({ success: true });
   } catch (error) {
     console.error('Error deleting FAQ:', error);
